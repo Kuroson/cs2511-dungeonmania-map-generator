@@ -12,7 +12,7 @@ function hideDetails(item) {
 }
 
 const types = ['null', 'player', 'wall', 'exit', 'boulder', 'switch', 'door', 'portal', 'zombie_toast_spawner', 'spider', 'zombie_toast', 'mercenary', 'treasure', 'key', 'wood', 'arrow', 'bomb', 'sword', 'assassin', 'hydra', 'swamp_tile', 'sun_stone', 'time_turner', 'time_travelling_portal', 'light_bulb_off', 'wire', 'switch_door', 'invincibility_potion', 'invisibility_potion']
-async function updateItem(item, x, y) {
+async function updateItem(item, y, x) {
   const { value: index } = await Swal.fire({
     title: 'Update current grid',
     input: 'select',
@@ -55,16 +55,16 @@ async function updateItem(item, x, y) {
   }
   map[x][y] = {
     ...map[x][y],
-    x,
-    y,
+    x: y,
+    y: x,
     type: t
   }
 }
 </script>
 
 <template v-if="w > 0 && h > 0">
-  <div v-for="row, i in map" :key="row" class="flex flex-row ml-3 h-20 w-full">
-    <div v-for="item, j in row" :key="item">
+  <div v-for="row, j in map" :key="row" class="flex flex-row ml-3 h-20 w-full">
+    <div v-for="item, i in row" :key="item">
       <div @mouseover="showDetails(item)"
            @mouseleave="hideDetails(item)"
            @click="updateItem(item, i, j)"

@@ -48,7 +48,10 @@ function updateMap() {
     row.filter(i => i).forEach(i => entities.push(i))
   })
   const mapObj = JSON.parse(mapStr)
-  mapObj.entities = entities
+  mapObj.entities = entities.map(e => {
+    if (e.displayDetails !== undefined) delete e.displayDetails
+    return e
+  })
   mapStr = JSON.stringify(mapObj, undefined, 2)
   Swal.fire({
     title: 'Map info', 
