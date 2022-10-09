@@ -68,6 +68,10 @@ function createMap() {
   })
   const mapObj = {}
   mapObj.entities = entities
+  mapObj.entities = entities.map(e => {
+    if (e.displayDetails !== undefined) delete e.displayDetails
+    return e
+  })
   mapObj['goal-condition'] = goal
   const mapStr = JSON.stringify(mapObj, undefined, 2)
   Swal.fire({

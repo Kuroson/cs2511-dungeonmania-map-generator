@@ -11,7 +11,7 @@ function hideDetails(item) {
   item.displayDetails = false
 }
 
-const types = ['null', 'player', 'wall', 'exit', 'boulder', 'switch', 'door', 'portal', 'zombie_toast_spawner', 'spider', 'zombie_toast', 'mercenary', 'treasure', 'key', 'wood', 'arrow', 'bomb', 'sword', 'assassin', 'hydra', 'swamp_tile', 'sun_stone', 'time_turner', 'time_travelling_portal', 'light_bulb_off', 'wire', 'switch_door', 'invincibility_potion', 'invisibility_potion']
+const types = ['null', 'player', 'wall', 'exit', 'boulder', 'switch', 'door', 'portal', 'zombie_toast_spawner', 'spider', 'zombie_toast', 'mercenary', 'treasure', 'key', 'wood', 'arrow', 'bomb', 'sword', 'assassin', 'hydra', 'swamp_tile', 'sun_stone', 'time_turner', 'time_travelling_portal', 'lightbulb_off', 'lightbulb_on', 'wire', 'switch_door', 'invincibility_potion', 'invisibility_potion', 'midnight_armour']
 async function updateItem(item, y, x) {
   const { value: index } = await Swal.fire({
     title: 'Update current grid',
@@ -45,7 +45,7 @@ async function updateItem(item, y, x) {
     const { value: colour } = await Swal.fire({
       title: 'Please choose portal colours',
       input: 'select',
-      inputOptions: {'BLUE': 'BLUE', 'RED': 'BLUE', 'GREEN': 'BLUE'},
+      inputOptions: {'BLUE': 'BLUE', 'RED': 'RED', 'GREEN': 'GREEN'},
       inputPlaceholder: 'choose a colour',
       showCancelButton: true,
     })
