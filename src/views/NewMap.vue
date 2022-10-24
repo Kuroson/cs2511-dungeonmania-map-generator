@@ -72,7 +72,7 @@ function createMap() {
     if (e.displayDetails !== undefined) delete e.displayDetails
     return e
   })
-  mapObj['goal-condition'] = goal
+  mapObj['goal-condition'] = JSON.parse(goal)
   const mapStr = JSON.stringify(mapObj, undefined, 2)
   Swal.fire({
     title: 'Map info', 
