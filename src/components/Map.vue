@@ -49,7 +49,7 @@ async function updateItem(item, y, x) {
       showCancelButton: true,
     })
     if (!key) return
-    if (!item) map[x][y] = { key }
+    if (!item) map[x][y] = { 'movement_factor': key }
     else map[x][y]['movement_factor'] = key
   }
   if (t === 'portal') {
