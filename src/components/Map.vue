@@ -11,7 +11,7 @@ function hideDetails(item) {
   item.displayDetails = false
 }
 
-const types = ['null', 'player', 'wall', 'exit', 'boulder', 'switch', 'door', 'portal', 'zombie_toast_spawner', 'spider', 'zombie_toast', 'mercenary', 'treasure', 'key', 'wood', 'arrow', 'bomb', 'sword', 'assassin', 'hydra', 'swamp_tile', 'sun_stone', 'time_turner', 'time_travelling_portal', 'lightbulb_off', 'lightbulb_on', 'wire', 'switch_door', 'invincibility_potion', 'invisibility_potion', 'midnight_armour']
+const types = ['null', 'player', 'wall', 'exit', 'boulder', 'switch', 'door', 'portal', 'zombie_toast_spawner', 'spider', 'zombie_toast', 'mercenary', 'treasure', 'key', 'wood', 'arrow', 'bomb', 'sword', 'assassin', 'hydra', 'swamp_tile', 'sun_stone', 'time_turner', 'time_travelling_portal', 'light_bulb_off', 'light_bulb_on', 'wire', 'switch_door', 'invincibility_potion', 'invisibility_potion', 'midnight_armour']
 async function updateItem(item, y, x) {
   const { value: index } = await Swal.fire({
     title: 'Update current grid',
@@ -40,6 +40,17 @@ async function updateItem(item, y, x) {
     if (!key) return
     if (!item) map[x][y] = { key }
     else map[x][y].key = key
+  }
+  if (t === 'swamp_tile') {
+    const { value: key } = await Swal.fire({
+      title: 'Please enter the movement factor',
+      input: 'number',
+      inputPlaceholder: 'enter the movement factor',
+      showCancelButton: true,
+    })
+    if (!key) return
+    if (!item) map[x][y] = { key }
+    else map[x][y]['movement_factor'] = key
   }
   if (t === 'portal') {
     const { value: colour } = await Swal.fire({
