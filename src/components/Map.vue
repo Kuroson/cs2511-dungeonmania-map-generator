@@ -80,7 +80,7 @@ async function updateItem(item, y, x) {
            @mouseleave="hideDetails(item)"
            @click="updateItem(item, i, j)"
         class="bg-gray-200 w-16 h-20 flex z-0 justify-center items-center m-0 flex-wrap">
-        <img v-if="item" class="w-12 h-12 relative z-1" :src="`/~z5191511/2511mapcreation/img/${item.type}.png`">
+        <img v-if="item" class="w-12 h-12 relative z-1" :src="`/img/${item.type}.png`">
         <!-- <img v-if="item" class="w-12 h-12 relative z-1" :src="`/img/${item.type}.png`"> -->
         <div v-else class="w-12 h-12 z-1 bg-blue-300 opacity-20" />
         <p v-if="displayCoord" class="text-xs whitespace-nowrap">({{i}}, {{j}})</p>
