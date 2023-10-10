@@ -1,29 +1,30 @@
-# template-web
+# cs2511-dungeonmania-map-generator
+
+Written originally by:
+
+- Tina Ji
+- Webster Zhang
+
+## Technology Stack
 
 Vite + Vue 3 + VueRouter 4 + TailwindCSS + Heroicons
 
 CDN Library: axios + SweetAlert2 + NProgress + Momentjs
 
-## Get Started
+NPM: pnpm
 
-Click **Use Template** or this [link](https://github.com/yzITI/template-web/generate).
+## Useful Commands
 
-Change project name in  `package.json` and `index.html`
-```
-"name": "project-name"
+See [package.json](./package.json) for full commands.
 
-<!-- you may change lang as well -->
-<title>Your Title</title>
-```
+Dev environment:
 
-Install dependency
-
-```
-npm i
+```bash
+pnpm run dev
 ```
 
-Run dev server
+Build:
 
-```
-npm run dev
+```bash
+pnpm run build
 ```

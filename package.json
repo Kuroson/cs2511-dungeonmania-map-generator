@@ -1,6 +1,14 @@
 {
   "name": "template-web",
   "version": "0.0.0",
+  "contributors": [
+    {
+      "name": "Tina Ji"
+    },
+    {
+      "name": "Webster Zhang"
+    }
+  ],
   "scripts": {
     "dev": "vite",
     "build": "vite build",
