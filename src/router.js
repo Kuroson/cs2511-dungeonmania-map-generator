@@ -1,19 +1,21 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from "vue-router";
 
 const index = {
-  '/': () => import('./views/Home.vue'),
-  '/load': () => import('./views/UpdateMap.vue'),
-  '/new': () => import('./views/NewMap.vue')
-}
+  "/": () => import("./views/Home.vue"),
+  "/load": () => import("./views/UpdateMap.vue"),
+  "/new": () => import("./views/NewMap.vue"),
+};
 
-const routes = []
-for (const r in index) routes.push({ path: r, component: index[r] })
-const router = createRouter({ history: createWebHashHistory(), routes }) 
+const routes = [];
+for (const r in index) routes.push({ path: r, component: index[r] });
+const router = createRouter({ history: createWebHashHistory(), routes });
 
-router.beforeEach(() => { NProgress.start() })
+router.beforeEach(() => {
+  NProgress.start();
+});
 router.afterEach(() => {
-  Swal.close()
-  NProgress.done()
-})
+  Swal.close();
+  NProgress.done();
+});
 
-export default router
+export default router;
