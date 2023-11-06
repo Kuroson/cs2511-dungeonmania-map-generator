@@ -48,6 +48,7 @@ const types = [
   "invincibility_potion",
   "invisibility_potion",
   "midnight_armour",
+  "snake_head",
 ];
 async function updateItem(item, y, x) {
   const { value: index } = await Swal.fire({
@@ -116,17 +117,32 @@ async function updateItem(item, y, x) {
 </script>
 
 <template v-if="w > 0 && h > 0">
-  <div v-for="(row, j) in map" :key="row" class="flex flex-row ml-3 h-20 w-full">
+  <div
+    v-for="(row, j) in map"
+    :key="row"
+    class="flex flex-row ml-3 h-20 w-full"
+  >
     <div v-for="(item, i) in row" :key="item">
-      <div @mouseover="showDetails(item)" @mouseleave="hideDetails(item)" @click="updateItem(item, i, j)"
-        class="bg-gray-200 w-16 h-20 flex z-0 justify-center items-center m-0 flex-wrap">
-        <img v-if="item" class="w-12 h-12 relative z-1" :src="`/img/${item.type}.png`" />
+      <div
+        @mouseover="showDetails(item)"
+        @mouseleave="hideDetails(item)"
+        @click="updateItem(item, i, j)"
+        class="bg-gray-200 w-16 h-20 flex z-0 justify-center items-center m-0 flex-wrap"
+      >
+        <img
+          v-if="item"
+          class="w-12 h-12 relative z-1"
+          :src="`/img/${item.type}.png`"
+        />
         <!-- <img v-if="item" class="w-12 h-12 relative z-1" :src="`/img/${item.type}.png`"> -->
         <div v-else class="w-12 h-12 z-1 bg-blue-300 opacity-20" />
         <p v-if="displayCoord" class="text-xs whitespace-nowrap">
           ({{ i }}, {{ j }})
         </p>
-        <div v-if="item?.displayDetails" class="fixed z-2 bg-white p-2 rounded opacity-70">
+        <div
+          v-if="item?.displayDetails"
+          class="fixed z-2 bg-white p-2 rounded opacity-70"
+        >
           <div v-for="(v, k) in item" :key="k" class="relative z-2">
             <p v-if="k !== 'displayDetails'">{{ k }}: {{ v }}</p>
           </div>
